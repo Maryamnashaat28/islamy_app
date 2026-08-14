@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil_plus/flutter_screenutil_plus.dart';
 import 'package:islamy_app/home_screen/HomeScreen.dart';
-
 void main() {
   runApp(const MyApp());
 }
-
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -21,6 +18,52 @@ class MyApp extends StatelessWidget {
       return MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(
+          fontFamily: "JannaLT",
+          dividerTheme: DividerThemeData(
+            color: Colors.white,
+            thickness: 1.5,
+            endIndent: 2.0
+          ),
+          textTheme: TextTheme(
+
+           bodyLarge: TextStyle(
+               //fontFamily: "JannaLT",
+             fontWeight: FontWeight.bold,
+             color: Colors.white,
+             fontSize: context.sp(20)
+           ),bodySmall: TextStyle(
+               //fontFamily: "JannaLT",
+             fontWeight: FontWeight.bold,
+             color: Colors.white,
+             fontSize: context.sp(13)
+           ),
+            bodyMedium: TextStyle(
+                letterSpacing: 0.7,
+              color: Color(0xfffeffe8),
+              fontWeight: FontWeight.w700,
+              fontSize: context.sp(14)
+            )
+          ),
+          inputDecorationTheme: InputDecorationTheme(
+             contentPadding: context.edgeInsets(all: 12),
+               prefixIconColor: Color(0xffe2be7f),
+              enabledBorder: OutlineInputBorder(
+                  borderRadius: context.borderRadius(all: 7),
+                  borderSide: BorderSide( color: Color(0xffe2be7f),width: 2,  )
+              ),
+            hintStyle: TextStyle(
+         letterSpacing: 0.7,
+                color: Color(0xfffeffe8),
+                  fontSize: context.sp(13),
+              fontWeight: FontWeight.w500
+            ),
+            fillColor: Colors.black.withOpacity(0.3),
+            filled: true,
+              border: OutlineInputBorder(
+                borderRadius: context.borderRadius(all: 7),
+                borderSide: BorderSide( color: Color(0xffe2be7f),width: 1,  )
+              ),
+          ),
           useMaterial3: true,
           // navigationBarTheme: NavigationBarThemeData(
           //    iconTheme: WidgetStatePropertyAll(IconThemeData(
