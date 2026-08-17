@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil_plus/flutter_screenutil_plus.dart';
 import 'package:islamy_app/home_screen/HomeScreen.dart';
+import 'package:islamy_app/tabs/SebhaTab.dart';
 void main() {
   runApp(const MyApp());
 }
@@ -119,7 +120,8 @@ class MyApp extends StatelessWidget {
       initialRoute: HomeScreen.routeName,
       debugShowCheckedModeBanner: false,
       routes: {
-      HomeScreen.routeName:(_)=>HomeScreen()
+      HomeScreen.routeName:(_)=>HomeScreen(),
+      SebhaTab.routeName:(_)=>SebhaTab()
       },
       );
     }

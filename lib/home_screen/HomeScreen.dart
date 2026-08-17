@@ -16,7 +16,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int selectedIndex=0;
+  int selectedIndex=2;
 List<Widget> tabs =[
   QuranTab(),
   HadithTab(),
@@ -28,21 +28,17 @@ List<Widget> tabs =[
   Widget build(BuildContext context) {
     return
       Container(
-
-
       decoration: BoxDecoration(
           image: DecorationImage(fit: BoxFit.fill,image: AssetImage("assets/images/home_bg.png")
           )
       ),
-
-
       child:
     Scaffold(
-        appBar: AppBar(
-          title:  Image.asset(height: context.h(130),
-              width: context.w(250),
-              "assets/images/img_header.png"),
-        ),
+        // appBar: AppBar(
+        //   title:  Image.asset(height: context.h(130),
+        //       width: context.w(250),
+        //       "assets/images/img_header.png"),
+        // ),
       bottomNavigationBar: BottomNavigationBar(
           type: BottomNavigationBarType.shifting,
 
