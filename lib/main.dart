@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil_plus/flutter_screenutil_plus.dart';
 import 'package:islamy_app/home_screen/HomeScreen.dart';
+import 'package:islamy_app/on_boarding/OnBoarding1.dart';
 import 'package:islamy_app/tabs/SebhaTab.dart';
+
+import 'on_boarding/OnBoarding2.dart';
+import 'on_boarding/OnBoarding3.dart';
+import 'on_boarding/OnBoarding4.dart';
+import 'on_boarding/OnBoarding5.dart';
 void main() {
   runApp(const MyApp());
 }
@@ -117,11 +123,16 @@ class MyApp extends StatelessWidget {
         primary: Color(0xffe2be7f)),
 
       ),
-      initialRoute: HomeScreen.routeName,
+      initialRoute: OnBoarding5.routeName,
       debugShowCheckedModeBanner: false,
       routes: {
       HomeScreen.routeName:(_)=>HomeScreen(),
-      SebhaTab.routeName:(_)=>SebhaTab()
+      SebhaTab.routeName:(_)=>SebhaTab(),
+      OnBoarding1.routeName:(_)=>OnBoarding1(),
+      OnBoarding2.routeName:(_)=>OnBoarding2(),
+      OnBoarding3.routeName:(_)=>OnBoarding3(),
+      OnBoarding4.routeName:(_)=>OnBoarding4(),
+      OnBoarding5.routeName:(_)=>OnBoarding5(),
       },
       );
     }

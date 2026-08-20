@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:islamy_app/reusable_components/AppBarImage.dart';
 
 class RadioTab extends StatelessWidget {
   const RadioTab({super.key});
@@ -6,7 +7,9 @@ class RadioTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.deepPurpleAccent,
+     appBar: AppBar(
+       title: AppBarImage(),
+     ),
     );
   }
 }

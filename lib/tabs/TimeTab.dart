@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:islamy_app/reusable_components/AppBarImage.dart';
 
 class TimeTab extends StatelessWidget {
   const TimeTab({super.key});
@@ -6,7 +7,9 @@ class TimeTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.orange,
+      appBar: AppBar(
+        title: AppBarImage(),
+      ),
     );
   }
 }

@@ -1,6 +1,7 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil_plus/flutter_screenutil_plus.dart';
+import 'package:islamy_app/reusable_components/AppBarImage.dart';
 class QuranTab extends StatelessWidget {
   QuranTab({super.key});
   //int number = index+1;
@@ -35,9 +36,7 @@ class QuranTab extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title:  Image.asset(height: context.h(130),
-            width: context.w(250),
-            "assets/images/img_header.png"),
+        title: AppBarImage()
       ),
      body: Padding(
        padding: context.edgeInsets(all: 16),

@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil_plus/flutter_screenutil_plus.dart';
+import 'package:islamy_app/reusable_components/AppBarImage.dart';
 
   class SebhaTab extends StatefulWidget {
     static const String routeName = "sebha";
@@ -26,10 +27,8 @@ class _SebhaTabState extends State<SebhaTab> {
         ),
       ),
 child: Scaffold(
-  appBar: AppBar(
-    title:  Image.asset(height: context.h(130),
-        width: context.w(250),
-        "assets/images/img_header.png"),
+  appBar:AppBar(
+    title: AppBarImage(),
   ),
   body: Padding(
     padding:context.edgeInsets(all: 10),

@@ -5,16 +5,12 @@ import 'package:islamy_app/tabs/QuranTab.dart';
 import 'package:islamy_app/tabs/RadioTab.dart';
 import 'package:islamy_app/tabs/SebhaTab.dart';
 import 'package:islamy_app/tabs/TimeTab.dart';
-
 class HomeScreen extends StatefulWidget {
   static const String routeName = "home";
-
  HomeScreen({super.key});
-
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
-
 class _HomeScreenState extends State<HomeScreen> {
   int selectedIndex=2;
 List<Widget> tabs =[
