@@ -11,15 +11,15 @@ class OnBoarding4 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xff202020),
-      appBar: AppBar(
-        title: AppBarImage(),
-
-      ),
+      // appBar: AppBar(
+      //   title: AppBarImage(),
+      //
+      // ),
       body: Padding(
         padding: context.edgeInsets(all:12),
         child: Column(
           children: [
-            Image.asset("assets/images/onboarding4.png"),
+            Expanded(child: Image.asset("assets/images/onboarding4.png",fit: BoxFit.contain,)),
             context.verticalSpace(15),
             Text("Bearish",style:
             Theme.of(context).textTheme.bodyLarge?.copyWith(

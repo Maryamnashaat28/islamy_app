@@ -11,18 +11,16 @@ class OnBoarding5 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xff202020),
-      appBar: AppBar(
-        title: AppBarImage(),
-
-      ),
+      // appBar: AppBar(
+      //   title: AppBarImage(),
+      //
+      // ),
       body: Padding(
         padding: context.edgeInsets(all:12),
         child: Column(
           children: [
-            Padding(
-              padding:  context.edgeInsets(all:20),
-              child: Image.asset("assets/images/onboarding5.png"),
-            ),
+             Expanded(child: Image.asset("assets/images/onboarding5.png",fit: BoxFit.contain,)),
+
             context.verticalSpace(5),
             Text("Holy Quran Radio",style:
             Theme.of(context).textTheme.bodyLarge?.copyWith(

@@ -9,10 +9,11 @@ class OnBoardingIndicator extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AnimatedContainer(duration: Duration(milliseconds: 250),
-      width: active ? context.w(5): context.w(3),
+      width: active ? context.w(15): context.w(5),
+      height: active ? context.w(6): context.w(5),
       decoration: BoxDecoration(
-        color: active? Theme.of(context).colorScheme.primary : Colors.grey,
-        borderRadius:  BorderRadiusGeometry.circular(active?context.r(10):context.r(15)),
+        color: active? Theme.of(context).colorScheme.primary : Color(0xff666666),
+        borderRadius:  BorderRadiusGeometry.circular(active?context.r(10):context.r(35)),
 
       ),
     );

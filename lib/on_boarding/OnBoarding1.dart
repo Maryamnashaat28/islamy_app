@@ -11,19 +11,23 @@ class OnBoarding1 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xff202020),
-      appBar: AppBar(
-        title: AppBarImage(),
-      ),
       body: Padding(
         padding:  context.edgeInsets(all: 12),
         child: Column(
           children: [
             //Spacer(),
-             Image.asset("assets/images/onboarding1.png",
-               ),
+             Expanded(
+               child: Image.asset("assets/images/onboarding1.png",
+                 fit: BoxFit.contain,
+                 ),
+             ),
             context.verticalSpace(50),
            // Spacer(flex: 4,),
-            Text("Welcome To Islmi App",style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: Theme.of(context).primaryColor),),
+           Transform.translate(
+             offset: Offset(0, -50),
+               child: Text("Welcome To Islmi App",style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: Theme.of(context).primaryColor),)),
+
+
 
           ],
         ),

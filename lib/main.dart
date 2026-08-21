@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil_plus/flutter_screenutil_plus.dart';
 import 'package:islamy_app/home_screen/HomeScreen.dart';
 import 'package:islamy_app/on_boarding/OnBoarding1.dart';
+import 'package:islamy_app/on_boarding/OnboardingScreen.dart';
 import 'package:islamy_app/tabs/SebhaTab.dart';
 
 import 'on_boarding/OnBoarding2.dart';
@@ -123,10 +124,11 @@ class MyApp extends StatelessWidget {
         primary: Color(0xffe2be7f)),
 
       ),
-      initialRoute: OnBoarding5.routeName,
+      initialRoute: OnboardingScreen.routeName,
       debugShowCheckedModeBanner: false,
       routes: {
       HomeScreen.routeName:(_)=>HomeScreen(),
+      OnboardingScreen.routeName:(_)=>OnboardingScreen(),
       SebhaTab.routeName:(_)=>SebhaTab(),
       OnBoarding1.routeName:(_)=>OnBoarding1(),
       OnBoarding2.routeName:(_)=>OnBoarding2(),

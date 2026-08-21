@@ -11,18 +11,22 @@ class OnBoarding3 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xff202020),
-      appBar: AppBar(
-        title: AppBarImage(),
-
-      ),
+      // appBar: AppBar(
+      //   title: AppBarImage(),
+      //
+      // ),
       body: Padding(
         padding: context.edgeInsets(all:12),
         child: Column(
           children: [
-            context.verticalSpace(20),
-            Image.asset("assets/images/onboarding3.png",
-            height: context.h(350),
-            width: context.w(350),),
+         //  context.verticalSpace(20),
+            Expanded(
+              child: Image.asset("assets/images/onboarding3.png",
+              fit: BoxFit.contain,
+              // height: context.h(350),
+              // width: context.w(350),),
+              ),
+            ),
             Text("Reading the Quran",style:
             Theme.of(context).textTheme.bodyLarge?.copyWith(
                 color: Theme.of(context).primaryColor
