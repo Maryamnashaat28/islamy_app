@@ -25,7 +25,7 @@ class _HadithTabState extends State<HadithTab> with SingleTickerProviderStateMix
   PageController controller =PageController(viewportFraction: 0.6);
  // late AnimationController _controller ;
  // late Animation<double> _animation;
- // double currentPage =0.0;
+  double currentPage =0;
   // late Animation<double> _animation;
   // @override
   // void dispose() {
@@ -43,21 +43,23 @@ class _HadithTabState extends State<HadithTab> with SingleTickerProviderStateMix
   //   _animation = Tween<double>(begin: 50.0, end: 200.0).animate(controller);
   //   controller.forward(); // Start the animation
   // }
-  // @override
-  // void initState(){
-  //   super.initState();
-  //   _controller = AnimationController(vsync: this,duration: Duration(milliseconds: 200));
-  //   _animation = Tween<double>(begin: 50.0, end: 200.0).animate(_controller);
-  //   _controller.forward();
-  //   setState(() {
-  //    // currentPage = controller.page ?? 0;
-  //   });
-  // }
-  // @override
-  // void dispose() {
-  //   controller.dispose();
-  //   super.dispose();
-  // }
+  @override
+  void initState(){
+    super.initState();
+    // _controller = AnimationController(vsync: this,duration: Duration(milliseconds: 200));
+    // _animation = Tween<double>(begin: 50.0, end: 200.0).animate(_controller);
+   // _controller.forward();
+    controller.addListener((){
+      setState(() {
+        currentPage = controller.page ?? 0;
+      });
+    });
+  }
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -81,37 +83,42 @@ class _HadithTabState extends State<HadithTab> with SingleTickerProviderStateMix
                itemCount: suraNames.length,
                itemBuilder:
                    (_,index){
-                 return Container(
-                   padding:context.edgeInsets(top: 10),
-                   margin: context.edgeInsets(top: 40,horizontal: 7,bottom: 30),
-                   width: context.w(210),
-                   //height: context.h(150),
-                   child:Stack(
-                     children: [
-                       Positioned(
-                           right:context.w(7),
-                           child: Image.asset(fit: BoxFit.cover,
-                               "assets/images/right_corner_hadith_background.png")),
-                       Positioned(
-                         left:context.w(7),
-                           child: Image.asset(fit: BoxFit.cover,
-                               "assets/images/left_corner_hadith_background.png")),
-                       Center(child: Text("$index",)),
-                       Positioned(
-                          bottom:context.h(0.1),
-                           child: Image.asset("assets/images/mosque_card.png",
-                             width: context.w(200),
-                             fit: BoxFit.fill
-                           )),
-                       Center(
-                         
-                           child: Image.asset(
-                               "assets/images/hadith_card_background.png"))
-                     ],
-                   ),
-                   decoration: BoxDecoration(
-                       color: Theme.of(context).primaryColor,
-                       borderRadius: BorderRadius.all(Radius.circular(context.r(20)))
+               double value = currentPage - index;
+               double scale = 1- (value.abs()*0.1);
+                 return Transform.scale(
+                   scale: scale,
+                   child: Container(
+                     padding:context.edgeInsets(top: 10),
+                     margin: context.edgeInsets(top: 30,bottom: 10),
+                     width: context.w(210),
+                     //height: context.h(150),
+                     child:Stack(
+                       children: [
+                         Positioned(
+                             right:context.w(7),
+                             child: Image.asset(fit: BoxFit.cover,
+                                 "assets/images/right_corner_hadith_background.png")),
+                         Positioned(
+                           left:context.w(7),
+                             child: Image.asset(fit: BoxFit.cover,
+                                 "assets/images/left_corner_hadith_background.png")),
+                         Center(child: Text("$index",)),
+                         Positioned(
+                            bottom:context.h(0.1),
+                             child: Image.asset("assets/images/mosque_card.png",
+                               width: context.w(200),
+                               fit: BoxFit.fill
+                             )),
+                         Center(
+
+                             child: Image.asset(
+                                 "assets/images/hadith_card_background.png"))
+                       ],
+                     ),
+                     decoration: BoxDecoration(
+                         color: Theme.of(context).primaryColor,
+                         borderRadius: BorderRadius.all(Radius.circular(context.r(20)))
+                     ),
                    ),
                  );
                }),
