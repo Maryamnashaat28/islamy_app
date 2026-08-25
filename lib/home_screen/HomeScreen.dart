@@ -12,7 +12,7 @@ class HomeScreen extends StatefulWidget {
   State<HomeScreen> createState() => _HomeScreenState();
 }
 class _HomeScreenState extends State<HomeScreen> {
-  int selectedIndex=2;
+  int selectedIndex=1;
 List<Widget> tabs =[
   QuranTab(),
   HadithTab(),

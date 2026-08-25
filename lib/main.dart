@@ -124,7 +124,7 @@ class MyApp extends StatelessWidget {
         primary: Color(0xffe2be7f)),
 
       ),
-      initialRoute: OnboardingScreen.routeName,
+      initialRoute: HomeScreen.routeName,
       debugShowCheckedModeBanner: false,
       routes: {
       HomeScreen.routeName:(_)=>HomeScreen(),
