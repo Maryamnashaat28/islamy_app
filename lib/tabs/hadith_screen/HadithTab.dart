@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil_plus/flutter_screenutil_plus.dart';
-
+import 'package:islamy_app/tabs/hadith_screen/HadithDetailsScreen.dart';
+import 'package:islamy_app/tabs/hadith_screen/HadithWidget.dart';
 class HadithTab extends StatefulWidget {
-
   HadithTab({super.key});
-
   @override
   State<HadithTab> createState() => _HadithTabState();
 }
@@ -22,33 +21,12 @@ class _HadithTabState extends State<HadithTab> with SingleTickerProviderStateMix
     ,"التين","العلق","القدر","البينة","الزلزلة","العاديات","القارعة","التكاثر","العصر",
     "الهمزة","الفيل","قريش","الماعون","الكوثر","الكافرون","النصر","المسد","الإخلاص","الفلق","الناس"
   ];
-  PageController controller =PageController(viewportFraction: 0.6);
- // late AnimationController _controller ;
- // late Animation<double> _animation;
-  double currentPage =0;
-  // late Animation<double> _animation;
-  // @override
-  // void dispose() {
-  //   controller.dispose(); // Dispose of the animation controller
-  //   super.dispose();
-  // }
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   controller = AnimationController(vsync: TickerProvider(),
-  //     duration: Duration(seconds: 2), // Animation duration
-  //
-  //   );
-  //   // Tween animation
-  //   _animation = Tween<double>(begin: 50.0, end: 200.0).animate(controller);
-  //   controller.forward(); // Start the animation
-  // }
+  PageController controller =PageController(viewportFraction: 0.6,
+  initialPage: 114);
+  double currentPage =114;
   @override
   void initState(){
     super.initState();
-    // _controller = AnimationController(vsync: this,duration: Duration(milliseconds: 200));
-    // _animation = Tween<double>(begin: 50.0, end: 200.0).animate(_controller);
-   // _controller.forward();
     controller.addListener((){
       setState(() {
         currentPage = controller.page ?? 0;
@@ -80,45 +58,20 @@ class _HadithTabState extends State<HadithTab> with SingleTickerProviderStateMix
            child: PageView.builder(
              controller: controller,
                scrollDirection: Axis.horizontal,
-               itemCount: suraNames.length,
+              // itemCount: suraNames.length,
                itemBuilder:
                    (_,index){
+                     int realIndex = index % suraNames.length ;
                double value = currentPage - index;
                double scale = 1- (value.abs()*0.1);
                  return Transform.scale(
                    scale: scale,
-                   child: Container(
-                     padding:context.edgeInsets(top: 10),
-                     margin: context.edgeInsets(top: 30,bottom: 10),
-                     width: context.w(210),
-                     //height: context.h(150),
-                     child:Stack(
-                       children: [
-                         Positioned(
-                             right:context.w(7),
-                             child: Image.asset(fit: BoxFit.cover,
-                                 "assets/images/right_corner_hadith_background.png")),
-                         Positioned(
-                           left:context.w(7),
-                             child: Image.asset(fit: BoxFit.cover,
-                                 "assets/images/left_corner_hadith_background.png")),
-                         Center(child: Text("$index",)),
-                         Positioned(
-                            bottom:context.h(0.1),
-                             child: Image.asset("assets/images/mosque_card.png",
-                               width: context.w(200),
-                               fit: BoxFit.fill
-                             )),
-                         Center(
-
-                             child: Image.asset(
-                                 "assets/images/hadith_card_background.png"))
-                       ],
-                     ),
-                     decoration: BoxDecoration(
-                         color: Theme.of(context).primaryColor,
-                         borderRadius: BorderRadius.all(Radius.circular(context.r(20)))
-                     ),
+                   child: GestureDetector(
+                     onTap: (){
+                       Navigator.pushNamed(context, HadithDetailsScreen.routeName,
+                           arguments:HadithArgs(index:realIndex));
+                     },
+                     child: HadithWidget(realIndexInt: "$realIndex"),
                    ),
                  );
                }),

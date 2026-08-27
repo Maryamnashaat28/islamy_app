@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil_plus/flutter_screenutil_plus.dart';
-import 'package:islamy_app/tabs/HadithTab.dart';
+import 'package:islamy_app/tabs/hadith_screen/HadithTab.dart';
 import 'package:islamy_app/tabs/QuranTab.dart';
 import 'package:islamy_app/tabs/RadioTab.dart';
 import 'package:islamy_app/tabs/SebhaTab.dart';
@@ -88,7 +88,7 @@ List<Widget> tabs =[
           child: Image.asset("assets/images/ic_sebha.png",
             fit: BoxFit.cover,
             color: selectedIndex == 2? Colors.white:Colors.black ,
-            width: context.w(26),
+            width: context.w(29),
             height: context.h(28),),
         ),label: "Tasbeeh",
             backgroundColor: Theme.of(context).colorScheme.primary),

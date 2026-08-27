@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil_plus/flutter_screenutil_plus.dart';
+import 'package:islamy_app/tabs/hadith_screen/HadithDetailsScreen.dart';
 import 'package:islamy_app/home_screen/HomeScreen.dart';
 import 'package:islamy_app/on_boarding/OnBoarding1.dart';
 import 'package:islamy_app/on_boarding/OnboardingScreen.dart';
@@ -33,7 +34,11 @@ class MyApp extends StatelessWidget {
             endIndent: 2.0
           ),
           textTheme: TextTheme(
-
+            headlineSmall: TextStyle(
+              fontSize: context.sp(17),
+              fontWeight: FontWeight.w700,
+              color: Color(0xffe2be7f),
+            ),
            bodyLarge: TextStyle(
                //fontFamily: "JannaLT",
              fontWeight: FontWeight.bold,
@@ -135,6 +140,7 @@ class MyApp extends StatelessWidget {
       OnBoarding3.routeName:(_)=>OnBoarding3(),
       OnBoarding4.routeName:(_)=>OnBoarding4(),
       OnBoarding5.routeName:(_)=>OnBoarding5(),
+      HadithDetailsScreen.routeName:(_)=>HadithDetailsScreen()
       },
       );
     }
