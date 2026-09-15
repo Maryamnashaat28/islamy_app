@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil_plus/flutter_screenutil_plus.dart';
 import 'package:islamy_app/tabs/hadith_screen/HadithDetailsScreen.dart';
 import 'package:islamy_app/tabs/hadith_screen/HadithWidget.dart';
@@ -7,23 +8,10 @@ class HadithTab extends StatefulWidget {
   @override
   State<HadithTab> createState() => _HadithTabState();
 }
-
 class _HadithTabState extends State<HadithTab> with SingleTickerProviderStateMixin{
-  List<String> suraNames = [
-    "الفاتحه","البقرة","آل عمران","النساء","المائدة","الأنعام","الأعراف","الأنفال","التوبة","يونس","هود"
-    ,"يوسف","الرعد","إبراهيم","الحجر","النحل","الإسراء","الكهف","مريم","طه","الأنبياء","الحج","المؤمنون"
-    ,"النّور","الفرقان","الشعراء","النّمل","القصص","العنكبوت","الرّوم","لقمان","السجدة","الأحزاب","سبأ"
-    ,"فاطر","يس","الصافات","ص","الزمر","غافر","فصّلت","الشورى","الزخرف","الدّخان","الجاثية","الأحقاف"
-    ,"محمد","الفتح","الحجرات","ق","الذاريات","الطور","النجم","القمر","الرحمن","الواقعة","الحديد","المجادلة"
-    ,"الحشر","الممتحنة","الصف","الجمعة","المنافقون","التغابن","الطلاق","التحريم","الملك","القلم","الحاقة","المعارج"
-    ,"نوح","الجن","المزّمّل","المدّثر","القيامة","الإنسان","المرسلات","النبأ","النازعات","عبس","التكوير","الإنفطار"
-    ,"المطفّفين","الإنشقاق","البروج","الطارق","الأعلى","الغاشية","الفجر","البلد","الشمس","الليل","الضحى","الشرح"
-    ,"التين","العلق","القدر","البينة","الزلزلة","العاديات","القارعة","التكاثر","العصر",
-    "الهمزة","الفيل","قريش","الماعون","الكوثر","الكافرون","النصر","المسد","الإخلاص","الفلق","الناس"
-  ];
   PageController controller =PageController(viewportFraction: 0.6,
-  initialPage: 114);
-  double currentPage =114;
+  initialPage: 50);
+  double currentPage =50;
   @override
   void initState(){
     super.initState();
@@ -40,6 +28,7 @@ class _HadithTabState extends State<HadithTab> with SingleTickerProviderStateMix
   }
   @override
   Widget build(BuildContext context) {
+
     return Container(
       decoration:BoxDecoration(
         image:  DecorationImage(image:AssetImage( "assets/images/hadith_background.png"),fit:
@@ -53,15 +42,20 @@ class _HadithTabState extends State<HadithTab> with SingleTickerProviderStateMix
 
         ),
         body: Column(
+
         children: [
          Expanded(
            child: PageView.builder(
+
              controller: controller,
                scrollDirection: Axis.horizontal,
-              // itemCount: suraNames.length,
+               //itemCount:suraNames.length,
                itemBuilder:
                    (_,index){
-                     int realIndex = index % suraNames.length ;
+                     int realIndex = index % 50 ;
+                     if(hadithLines.isEmpty) {
+                      loadFile(realIndex);
+                     }
                double value = currentPage - index;
                double scale = 1- (value.abs()*0.1);
                  return Transform.scale(
@@ -138,5 +132,16 @@ class _HadithTabState extends State<HadithTab> with SingleTickerProviderStateMix
         ),
       ),
     );
+
   }
+  List<String > hadithLines=[];
+  loadFile(int index)async{
+    String fileContent= await rootBundle.loadString("assets/files/ahadith_files/h${index+1}.txt");
+     hadithLines = fileContent.split("\n");
+    setState(() {
+
+    });
+    print(hadithLines);
+  }
+
 }

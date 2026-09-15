@@ -72,6 +72,7 @@ flutter:
     - assets/images/
     - assets/images/2x/
     - assets/images/3x/
+    - assets/files/ahadith_files/
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
 
