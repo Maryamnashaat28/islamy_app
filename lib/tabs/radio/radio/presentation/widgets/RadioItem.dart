@@ -3,10 +3,19 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil_plus/flutter_screenutil_plus.dart';
 import '../../data/models/Radios.dart';
-class RadioItem extends StatelessWidget{
+class RadioItem extends StatefulWidget{
   final Radios radio;
   final AudioPlayer player;
+  bool isClicked = false;
+  bool isMuted = false;
   RadioItem({required this.radio,required this.player});
+
+  @override
+  State<RadioItem> createState() => _RadioItemState();
+}
+
+class _RadioItemState extends State<RadioItem> {
+
   @override
   Widget build(BuildContext context) {
     return Container(width: context.w(60),
@@ -21,7 +30,7 @@ class RadioItem extends StatelessWidget{
 
                Center(
                  heightFactor: context.h(1),
-                   child: Text("${radio.name}",style: Theme.of(context).textTheme.labelLarge?.copyWith(fontSize: context.sp(17)),)),
+                   child: Text("${widget.radio.name}",style: Theme.of(context).textTheme.labelLarge?.copyWith(fontSize: context.sp(17)),)),
          // ),
           Positioned(
             bottom: context.h(2),
@@ -33,23 +42,32 @@ class RadioItem extends StatelessWidget{
           Positioned(
             bottom: context.h(18),
             right: context.w(105),
-            child: Image.asset("assets/images/Volume_High.png",
-              height: context.h(25),
-              fit: BoxFit.fill,),
+            child:
+             InkWell(
+               onTap: toggleMuteUnMute,
+               child: Image.asset(widget.isMuted == false ?
+               "assets/images/Volume_High.png":
+                   "assets/images/volume_cross.png"
+
+
+                 ,
+                height: context.h(25),
+                fit: BoxFit.fill,),
+             ),
           ),Positioned(
             bottom: context.h(18),
             right: context.w(145),
             child: InkWell(
-
-               onTap: (){
-                 print("clicked");
-                // AudioPlayer player = AudioPlayer();
-               player.play(UrlSource(radio.url!));
-               },
-              child: Image.asset("assets/images/play_icon.png",
+               onTap:
+             togglePlayBack,
+              child:
+              Image.asset(widget.isClicked == false?"assets/images/play_icon.png":
+    "assets/images/pause.png"
+    ,
                 height: context.h(30),
                 width: context.w(25),
-                fit: BoxFit.fill,),
+                fit: BoxFit.fill,)
+              ,
             ),
           )
         ],
@@ -61,5 +79,26 @@ class RadioItem extends StatelessWidget{
       ),
 
     );
+  }
+  void togglePlayBack()async{
+    if(widget.isClicked){
+ await widget.player.pause();
+    }else {
+     await widget.player.play(UrlSource(widget.radio.url!));
+    }
+    setState(() {
+      widget.isClicked =  !widget.isClicked;
+    });
+  }
+  void toggleMuteUnMute()async{
+    if(widget.isMuted){
+      await widget.player.setVolume(1.0);
+
+    }else{
+      await widget.player.setVolume(0.0);
+    }
+    setState(() {
+      widget.isMuted = !widget.isMuted;
+    });
   }
 }
