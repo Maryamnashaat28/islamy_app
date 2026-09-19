@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil_plus/flutter_screenutil_plus.dart';
 import 'package:islamy_app/tabs/hadith_screen/HadithTab.dart';
 import 'package:islamy_app/tabs/QuranTab.dart';
-import 'package:islamy_app/tabs/RadioTab.dart';
+import 'package:islamy_app/tabs/radio/radio/presentation/pages/RadioTab.dart';
 import 'package:islamy_app/tabs/SebhaTab.dart';
 import 'package:islamy_app/tabs/TimeTab.dart';
 class HomeScreen extends StatefulWidget {
