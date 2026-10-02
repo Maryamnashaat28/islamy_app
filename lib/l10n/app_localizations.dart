@@ -109,6 +109,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Radio'**
   String get radio;
+
+  /// No description provided for @settings.
+  ///
+  /// In en, this message translates to:
+  /// **'Settings'**
+  String get settings;
+
+  /// No description provided for @time.
+  ///
+  /// In en, this message translates to:
+  /// **'Time'**
+  String get time;
+
+  /// No description provided for @hadith.
+  ///
+  /// In en, this message translates to:
+  /// **'Hadith'**
+  String get hadith;
+
+  /// No description provided for @quran.
+  ///
+  /// In en, this message translates to:
+  /// **'Quran'**
+  String get quran;
 }
 
 class _AppLocalizationsDelegate

@@ -13,4 +13,16 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get radio => 'اذاعة';
+
+  @override
+  String get settings => 'اعدادات';
+
+  @override
+  String get time => 'توقيت';
+
+  @override
+  String get hadith => 'حديث';
+
+  @override
+  String get quran => 'قرآن';
 }

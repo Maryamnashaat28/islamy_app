@@ -1,5 +1,9 @@
 {
    "tasbeeh": "Tasbeeh",
-  "radio": "Radio"
+  "radio": "Radio",
+  "settings": "Settings",
+  "time": "Time",
+  "hadith": "Hadith",
+  "quran": "Quran"
 
 }

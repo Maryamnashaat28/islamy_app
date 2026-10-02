@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil_plus/flutter_screenutil_plus.dart';
 import 'package:islamy_app/providers/SettingsProvider.dart';
+import 'package:islamy_app/tabs/SettingsTab.dart';
 import 'package:islamy_app/tabs/hadith_screen/HadithDetailsScreen.dart';
 import 'package:islamy_app/home_screen/HomeScreen.dart';
 import 'package:islamy_app/on_boarding/OnBoarding1.dart';
@@ -157,7 +158,8 @@ class MyApp extends StatelessWidget {
       OnBoarding3.routeName:(_)=>OnBoarding3(),
       OnBoarding4.routeName:(_)=>OnBoarding4(),
       OnBoarding5.routeName:(_)=>OnBoarding5(),
-      HadithDetailsScreen.routeName:(_)=>HadithDetailsScreen()
+      HadithDetailsScreen.routeName:(_)=>HadithDetailsScreen(),
+      SettingsTab.routeName:(_)=>SettingsTab()
       },
       );
     }

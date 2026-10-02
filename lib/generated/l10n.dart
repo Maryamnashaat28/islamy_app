@@ -63,6 +63,26 @@ class S {
   String get radio {
     return Intl.message('Radio', name: 'radio', desc: '', args: []);
   }
+
+  /// `Settings`
+  String get settings {
+    return Intl.message('Settings', name: 'settings', desc: '', args: []);
+  }
+
+  /// `Time`
+  String get time {
+    return Intl.message('Time', name: 'time', desc: '', args: []);
+  }
+
+  /// `Hadith`
+  String get hadith {
+    return Intl.message('Hadith', name: 'hadith', desc: '', args: []);
+  }
+
+  /// `Quran`
+  String get quran {
+    return Intl.message('Quran', name: 'quran', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

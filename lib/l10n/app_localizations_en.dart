@@ -13,4 +13,16 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get radio => 'Radio';
+
+  @override
+  String get settings => 'Settings';
+
+  @override
+  String get time => 'Time';
+
+  @override
+  String get hadith => 'Hadith';
+
+  @override
+  String get quran => 'Quran';
 }
