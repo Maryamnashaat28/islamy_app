@@ -12,6 +12,6 @@ class RadioViewModel {
   Response response= await http.get(Uri.parse(radioPath));
  final  json = jsonDecode(response.body);
  final data=RadioResponse.fromJson(json);
- return data.radios ;
+ return data.radios;
   }
 }

@@ -1,23 +1,29 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil_plus/flutter_screenutil_plus.dart';
+import 'package:islamy_app/providers/SettingsProvider.dart';
 import 'package:islamy_app/tabs/hadith_screen/HadithDetailsScreen.dart';
 import 'package:islamy_app/home_screen/HomeScreen.dart';
 import 'package:islamy_app/on_boarding/OnBoarding1.dart';
 import 'package:islamy_app/on_boarding/OnboardingScreen.dart';
 import 'package:islamy_app/tabs/SebhaTab.dart';
-
 import 'on_boarding/OnBoarding2.dart';
 import 'on_boarding/OnBoarding3.dart';
 import 'on_boarding/OnBoarding4.dart';
 import 'on_boarding/OnBoarding5.dart';
+import 'l10n/app_localizations.dart';
+import 'package:provider/provider.dart';
 void main() {
-  runApp(const MyApp());
+  runApp(ChangeNotifierProvider(create: (context)=>
+      SettingsProvider(),
+  child: const MyApp()));
 }
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    SettingsProvider settingsProvider = Provider.of<SettingsProvider>(context);
     return ScreenUtilPlusInit(
         designSize: const Size(360, 690),
         minTextAdapt: true,
@@ -26,6 +32,17 @@ class MyApp extends StatelessWidget {
     builder :(context,child){
       return MaterialApp(
         title: 'Flutter Demo',
+        localizationsDelegates:[
+          ...GlobalMaterialLocalizations.delegates,
+          GlobalWidgetsLocalizations.delegate,
+         GlobalCupertinoLocalizations.delegate,
+         AppLocalizations.delegate,
+        ],
+        supportedLocales: [
+          Locale('en'),
+          Locale('ar'),
+        ],
+        locale:Locale(settingsProvider.language),
         theme: ThemeData(
           fontFamily: "JannaLT",
           dividerTheme: DividerThemeData(
@@ -147,4 +164,5 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
 

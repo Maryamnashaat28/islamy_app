@@ -141,10 +141,6 @@ List<Widget> tabs =[
       //             height: context.h(22),
       //           ),label: "Hadith",
       //       )
-      //
-      //
-      //
-      //
       // ]),
       body: tabs[selectedIndex],
       ),
