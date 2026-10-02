@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil_plus/flutter_screenutil_plus.dart';
+import 'package:islamy_app/l10n/app_localizations.dart';
+import 'package:islamy_app/tabs/SettingsTab.dart';
 import 'package:islamy_app/tabs/hadith_screen/HadithTab.dart';
 import 'package:islamy_app/tabs/QuranTab.dart';
 import 'package:islamy_app/tabs/radio/radio/presentation/pages/RadioTab.dart';
@@ -12,13 +14,14 @@ class HomeScreen extends StatefulWidget {
   State<HomeScreen> createState() => _HomeScreenState();
 }
 class _HomeScreenState extends State<HomeScreen> {
-  int selectedIndex=3;
+  int selectedIndex=5;
 List<Widget> tabs =[
   QuranTab(),
   HadithTab(),
   SebhaTab(),
   RadioTab(),
-  TimeTab()
+  TimeTab(),
+  SettingsTab(),
 ];
   @override
   Widget build(BuildContext context) {
@@ -57,7 +60,7 @@ List<Widget> tabs =[
           width: context.w(16),
           height: context.h(20),
           ),
-        ),label: "Quran"
+        ),label: AppLocalizations.of(context)!.quran
         ,backgroundColor: Theme.of(context).colorScheme.primary
         ),
         BottomNavigationBarItem(icon: Container(
@@ -72,7 +75,7 @@ List<Widget> tabs =[
             width: context.w(18),
             height: context.h(20),
           ),
-        ),label: "Hadith",
+        ),label: AppLocalizations.of(context)!.hadith,
             backgroundColor:
             Theme.of(context).colorScheme.primary
         ),
@@ -90,7 +93,7 @@ List<Widget> tabs =[
             color: selectedIndex == 2? Colors.white:Colors.black ,
             width: context.w(29),
             height: context.h(28),),
-        ),label: "Tasbeeh",
+        ),label: AppLocalizations.of(context)!.tasbeeh,
             backgroundColor: Theme.of(context).colorScheme.primary),
         BottomNavigationBarItem(icon:
         Container(
@@ -105,7 +108,7 @@ List<Widget> tabs =[
             fit: BoxFit.cover,
             width: context.w(24),
             height: context.h(22),),
-        ),label: "Radio",
+        ),label: AppLocalizations.of(context)!.radio,
             backgroundColor: Theme.of(context).colorScheme.primary),
         BottomNavigationBarItem(icon: Container(
           padding: context.edgeInsets(vertical:  5,horizontal: 17),
@@ -119,8 +122,19 @@ List<Widget> tabs =[
             fit: BoxFit.cover,
             width: context.w(18),
             height: context.h(20),),
-        ),label: "Time",
+        ),label: AppLocalizations.of(context)!.time,
             backgroundColor: Theme.of(context).colorScheme.primary),
+        BottomNavigationBarItem(icon: Container(
+          padding: context.edgeInsets(horizontal: 13,vertical: 1),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadiusGeometry.circular(context.r(20)),
+            color: selectedIndex==5?Color(0xff6d5f46):null
+          ),
+          child:  Icon(Icons.settings,size: 25.sp,
+            color: selectedIndex == 5? Colors.white:Colors.black,
+          ),
+        ),label: AppLocalizations.of(context)!.settings,
+        backgroundColor: Theme.of(context).primaryColor )
       ]
       ),
       // bottomNavigationBar: NavigationBar(
@@ -141,10 +155,6 @@ List<Widget> tabs =[
       //             height: context.h(22),
       //           ),label: "Hadith",
       //       )
-      //
-      //
-      //
-      //
       // ]),
       body: tabs[selectedIndex],
       ),
